@@ -12,8 +12,26 @@
 		88592D5721D924A800FA40DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88592D5521D924A800FA40DF /* Main.storyboard */; };
 		88592D5921D924A800FA40DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88592D5821D924A800FA40DF /* Assets.xcassets */; };
 		88592D5C21D924A800FA40DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88592D5A21D924A800FA40DF /* LaunchScreen.storyboard */; };
-		88592D6721D924A800FA40DF /* PostsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592D6621D924A800FA40DF /* PostsTests.swift */; };
 		88592D7221D924A800FA40DF /* PostsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592D7121D924A800FA40DF /* PostsUITests.swift */; };
+		88592D8321D9255E00FA40DF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592D8221D9255E00FA40DF /* Post.swift */; };
+		88592D8521D9260900FA40DF /* LoadPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592D8421D9260900FA40DF /* LoadPostsUseCase.swift */; };
+		88592D8C21D92C6900FA40DF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88592D8721D92C6800FA40DF /* RxCocoa.framework */; };
+		88592D8D21D92C6900FA40DF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88592D8821D92C6800FA40DF /* Realm.framework */; };
+		88592D8E21D92C6900FA40DF /* RxRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88592D8921D92C6800FA40DF /* RxRealm.framework */; };
+		88592D8F21D92C6900FA40DF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88592D8A21D92C6800FA40DF /* RealmSwift.framework */; };
+		88592D9021D92C6900FA40DF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88592D8B21D92C6800FA40DF /* RxSwift.framework */; };
+		88592D9521D930AA00FA40DF /* PostsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592D9421D930AA00FA40DF /* PostsNetwork.swift */; };
+		88592D9B21D936B200FA40DF /* NetworkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592D9A21D936B200FA40DF /* NetworkSettings.swift */; };
+		88592D9D21D940A600FA40DF /* PostsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592D9C21D940A600FA40DF /* PostsRepository.swift */; };
+		88592DA021D9429D00FA40DF /* RMPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592D9F21D9429D00FA40DF /* RMPost.swift */; };
+		88592DA221D9438000FA40DF /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592DA121D9438000FA40DF /* Repository.swift */; };
+		88592DA621D9481000FA40DF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592DA521D9481000FA40DF /* Network.swift */; };
+		88592DA821D953EE00FA40DF /* LoadPostsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592DA721D953EE00FA40DF /* LoadPostsUseCaseTests.swift */; };
+		88592DB921D9690F00FA40DF /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88592DB721D9690500FA40DF /* RxBlocking.framework */; };
+		88592DBB21D9700A00FA40DF /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592DBA21D9700A00FA40DF /* TestData.swift */; };
+		88592DBD21D970F700FA40DF /* MockNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88592DBC21D970F700FA40DF /* MockNetwork.swift */; };
+		88592DBF21D9727B00FA40DF /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 88592DBE21D9727A00FA40DF /* posts.json */; };
+		88592DC021D9735400FA40DF /* posts.json in Resources */ = {isa = PBXBuildFile; fileRef = 88592DBE21D9727A00FA40DF /* posts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,11 +60,28 @@
 		88592D5B21D924A800FA40DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88592D5D21D924A800FA40DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88592D6221D924A800FA40DF /* PostsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		88592D6621D924A800FA40DF /* PostsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTests.swift; sourceTree = "<group>"; };
 		88592D6821D924A800FA40DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88592D6D21D924A800FA40DF /* PostsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88592D7121D924A800FA40DF /* PostsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsUITests.swift; sourceTree = "<group>"; };
 		88592D7321D924A800FA40DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88592D8221D9255E00FA40DF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		88592D8421D9260900FA40DF /* LoadPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPostsUseCase.swift; sourceTree = "<group>"; };
+		88592D8721D92C6800FA40DF /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		88592D8821D92C6800FA40DF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		88592D8921D92C6800FA40DF /* RxRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRealm.framework; path = Carthage/Build/iOS/RxRealm.framework; sourceTree = "<group>"; };
+		88592D8A21D92C6800FA40DF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		88592D8B21D92C6800FA40DF /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		88592D9421D930AA00FA40DF /* PostsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsNetwork.swift; sourceTree = "<group>"; };
+		88592D9A21D936B200FA40DF /* NetworkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSettings.swift; sourceTree = "<group>"; };
+		88592D9C21D940A600FA40DF /* PostsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsRepository.swift; sourceTree = "<group>"; };
+		88592D9F21D9429D00FA40DF /* RMPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMPost.swift; sourceTree = "<group>"; };
+		88592DA121D9438000FA40DF /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		88592DA521D9481000FA40DF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		88592DA721D953EE00FA40DF /* LoadPostsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadPostsUseCaseTests.swift; sourceTree = "<group>"; };
+		88592DB721D9690500FA40DF /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		88592DBA21D9700A00FA40DF /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		88592DBC21D970F700FA40DF /* MockNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetwork.swift; sourceTree = "<group>"; };
+		88592DBE21D9727A00FA40DF /* posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +89,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88592D9021D92C6900FA40DF /* RxSwift.framework in Frameworks */,
+				88592D8C21D92C6900FA40DF /* RxCocoa.framework in Frameworks */,
+				88592D8E21D92C6900FA40DF /* RxRealm.framework in Frameworks */,
+				88592D8F21D92C6900FA40DF /* RealmSwift.framework in Frameworks */,
+				88592D8D21D92C6900FA40DF /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88592DB921D9690F00FA40DF /* RxBlocking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +122,7 @@
 				88592D6521D924A800FA40DF /* PostsTests */,
 				88592D7021D924A800FA40DF /* PostsUITests */,
 				88592D4F21D924A800FA40DF /* Products */,
+				88592D8621D92C6800FA40DF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +139,10 @@
 		88592D5021D924A800FA40DF /* Posts */ = {
 			isa = PBXGroup;
 			children = (
+				88592D7F21D9250900FA40DF /* Domain */,
+				88592D9221D92E8C00FA40DF /* Network */,
+				88592D9321D92E9700FA40DF /* Repository */,
+				88592D9921D9369600FA40DF /* Config */,
 				88592D5121D924A800FA40DF /* AppDelegate.swift */,
 				88592D5321D924A800FA40DF /* ViewController.swift */,
 				88592D5521D924A800FA40DF /* Main.storyboard */,
@@ -110,7 +156,10 @@
 		88592D6521D924A800FA40DF /* PostsTests */ = {
 			isa = PBXGroup;
 			children = (
-				88592D6621D924A800FA40DF /* PostsTests.swift */,
+				88592DA721D953EE00FA40DF /* LoadPostsUseCaseTests.swift */,
+				88592DBC21D970F700FA40DF /* MockNetwork.swift */,
+				88592DBA21D9700A00FA40DF /* TestData.swift */,
+				88592DBE21D9727A00FA40DF /* posts.json */,
 				88592D6821D924A800FA40DF /* Info.plist */,
 			);
 			path = PostsTests;
@@ -125,6 +174,79 @@
 			path = PostsUITests;
 			sourceTree = "<group>";
 		};
+		88592D7F21D9250900FA40DF /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				88592D8021D9251B00FA40DF /* Model */,
+				88592D8121D9252200FA40DF /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		88592D8021D9251B00FA40DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88592D8221D9255E00FA40DF /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88592D8121D9252200FA40DF /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				88592D8421D9260900FA40DF /* LoadPostsUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		88592D8621D92C6800FA40DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88592DB721D9690500FA40DF /* RxBlocking.framework */,
+				88592D8821D92C6800FA40DF /* Realm.framework */,
+				88592D8A21D92C6800FA40DF /* RealmSwift.framework */,
+				88592D8721D92C6800FA40DF /* RxCocoa.framework */,
+				88592D8921D92C6800FA40DF /* RxRealm.framework */,
+				88592D8B21D92C6800FA40DF /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88592D9221D92E8C00FA40DF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				88592DA521D9481000FA40DF /* Network.swift */,
+				88592D9421D930AA00FA40DF /* PostsNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		88592D9321D92E9700FA40DF /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				88592D9E21D9428300FA40DF /* Model */,
+				88592DA121D9438000FA40DF /* Repository.swift */,
+				88592D9C21D940A600FA40DF /* PostsRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		88592D9921D9369600FA40DF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				88592D9A21D936B200FA40DF /* NetworkSettings.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		88592D9E21D9428300FA40DF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88592D9F21D9429D00FA40DF /* RMPost.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +257,7 @@
 				88592D4A21D924A800FA40DF /* Sources */,
 				88592D4B21D924A800FA40DF /* Frameworks */,
 				88592D4C21D924A800FA40DF /* Resources */,
+				88592D9121D92C9700FA40DF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -232,6 +355,7 @@
 				88592D5C21D924A800FA40DF /* LaunchScreen.storyboard in Resources */,
 				88592D5921D924A800FA40DF /* Assets.xcassets in Resources */,
 				88592D5721D924A800FA40DF /* Main.storyboard in Resources */,
+				88592DC021D9735400FA40DF /* posts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88592DBF21D9727B00FA40DF /* posts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +376,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		88592D9121D92C9700FA40DF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRealm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		88592D4A21D924A800FA40DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88592DA621D9481000FA40DF /* Network.swift in Sources */,
+				88592D8321D9255E00FA40DF /* Post.swift in Sources */,
+				88592D9521D930AA00FA40DF /* PostsNetwork.swift in Sources */,
+				88592D9D21D940A600FA40DF /* PostsRepository.swift in Sources */,
 				88592D5421D924A800FA40DF /* ViewController.swift in Sources */,
+				88592DA021D9429D00FA40DF /* RMPost.swift in Sources */,
 				88592D5221D924A800FA40DF /* AppDelegate.swift in Sources */,
+				88592D8521D9260900FA40DF /* LoadPostsUseCase.swift in Sources */,
+				88592D9B21D936B200FA40DF /* NetworkSettings.swift in Sources */,
+				88592DA221D9438000FA40DF /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +424,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88592D6721D924A800FA40DF /* PostsTests.swift in Sources */,
+				88592DBB21D9700A00FA40DF /* TestData.swift in Sources */,
+				88592DBD21D970F700FA40DF /* MockNetwork.swift in Sources */,
+				88592DA821D953EE00FA40DF /* LoadPostsUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +594,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Posts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +615,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Posts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,6 +637,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PostsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -488,6 +661,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PostsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
