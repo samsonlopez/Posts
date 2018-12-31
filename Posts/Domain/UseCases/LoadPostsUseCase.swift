@@ -11,6 +11,8 @@ import RxSwift
 
 public protocol LoadPostsUseCase {
     
+    var isDataLoaded: Bool { get }
+    
     // Retrieves all posts from the network and stores in repository
     func loadPosts() -> Observable<Bool>
 }
@@ -25,6 +27,10 @@ public class DefaultLoadPostsUseCase: LoadPostsUseCase {
     init(network: PostsNetwork, repository: PostsRepository) {
         self.network = network
         self.repository = repository
+    }
+    
+    public var isDataLoaded: Bool {
+        return repository.isDataLoaded
     }
     
     public func loadPosts() -> Observable<Bool> {

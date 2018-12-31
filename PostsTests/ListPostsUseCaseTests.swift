@@ -1,8 +1,8 @@
 //
-//  LoadPostsUseCaseTests.swift
+//  ListPostsUseCaseTests.swift
 //  PostsTests
 //
-//  Created by Samson Lopez on 30/12/2018.
+//  Created by Samson Lopez on 31/12/2018.
 //  Copyright © 2018 Samson Lopez. All rights reserved.
 //
 
@@ -12,14 +12,15 @@ import RealmSwift
 import RxBlocking
 @testable import Posts
 
-class LoadPostsUseCaseTests: XCTestCase {
-
-    var sut_loadPostsUseCase: LoadPostsUseCase!
+class ListPostsUseCaseTests: XCTestCase {
+    
+    var sut_listPostsUseCase: ListPostsUseCase!
+    var loadPostsUseCase: LoadPostsUseCase!
     var mockNetwork: MockNetwork! // Also holds mock var entityCount on return
     var realm: Realm!
     
     override func setUp() {
-
+        
         // Mock network to load test data from file
         mockNetwork = MockNetwork(filename: "posts")
         let postsNetwork = DefaultPostsNetwork(network: mockNetwork)
@@ -30,22 +31,24 @@ class LoadPostsUseCaseTests: XCTestCase {
         
         let repository = RealmRepository()
         let postsRepository = DefaultPostsRepository(repository: repository)
+        loadPostsUseCase = DefaultLoadPostsUseCase(network: postsNetwork, repository: postsRepository)
         
-        sut_loadPostsUseCase = DefaultLoadPostsUseCase(network: postsNetwork, repository: postsRepository)
+        sut_listPostsUseCase = DefaultListPostsUseCase(repository: postsRepository)
     }
-
+    
     override func tearDown() {
-        sut_loadPostsUseCase = nil
+        sut_listPostsUseCase = nil
         realm = nil
     }
-
-    func testLoadPosts_CreatesPostsInRepository() {
+    
+    func testGetPosts_CreatesPostsInRepository() {
         
-        let success = try! sut_loadPostsUseCase.loadPosts().toBlocking().first()!
+        // Load test data to realm via LoadPostsUseCase
+        let success = try! loadPostsUseCase.loadPosts().toBlocking().first()!
         XCTAssertTrue(success, "loadPosts fails and returns false")
-        
-        let posts = realm.objects(RMPost.self)
+
+        let posts = try! sut_listPostsUseCase.getPosts().toBlocking().first()!
         XCTAssertEqual(posts.count, mockNetwork.entityCount, "Posts count does not match with test data count")
     }
-
+    
 }

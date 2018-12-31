@@ -12,30 +12,37 @@ import RealmSwift
 
 public protocol Repository {
 
+    // Check if data is already loaded into repository
+    var isDataLoaded: Bool { get }
+    
+    // Saves entity array (Posts, User, Comment) to repository
     func saveEntities<T>(entities: [T]) -> Observable<Bool> where T:DomainObject
+    
+    // Retrieves array of objects for specified entity from repository
+    func getData<T: Object>(type: T.Type) -> Observable<[T]>
 }
 
 // Concrete implementation of Repository with Realm
 
 public class RealmRepository: Repository {
     
-    let realm: Realm
-    
-    init(realm: Realm) {
-        self.realm = realm
+    public var isDataLoaded: Bool {
+        let realm = try! Realm()
+        let posts = realm.objects(RMPost.self)
+        if posts.count > 0 {
+            return true
+        } else {
+            return false
+        }
     }
     
     public func saveEntities<T>(entities: [T]) -> Observable<Bool> where T:DomainObject {
-        //let realm = try! Realm()
+        let realm = try! Realm()
         return Observable.from(entities)
-            .map { [weak realm] in
-                print($0)
+            .map {
                 let entity = $0
                 
                 do {
-                    guard let realm = realm else {
-                        return false
-                    }
                     try realm.write {
                         realm.add(entity.repoObject())
                     }
@@ -44,6 +51,13 @@ public class RealmRepository: Repository {
                 }
                 return true
             }.reduce(true) { $0 || $1}
+    }
+
+    public func getData<T: Object>(type: T.Type) -> Observable<[T]> {
+        let realm = try! Realm()
+        let posts = realm.objects(T.self)
+        
+        return Observable.from(optional: posts.toArray())
     }
     
 }
