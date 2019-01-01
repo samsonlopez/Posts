@@ -24,7 +24,6 @@ public class RMUser: Object, RepoObject {
 }
 
 extension User: DomainObject {
-    
     public func repoObject<T>() -> T where T:Object {
         let rmUser = RMUser()
         rmUser.id = id

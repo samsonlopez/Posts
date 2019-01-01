@@ -39,7 +39,6 @@ public class RMPost: Object, RepoObject {
 }
 
 extension Post: DomainObject {
-    
     public func repoObject<T>() -> T where T:Object {
         let rmPost = RMPost()
         rmPost.id = id
@@ -49,5 +48,4 @@ extension Post: DomainObject {
         
         return rmPost as! T
     }
-    
 }

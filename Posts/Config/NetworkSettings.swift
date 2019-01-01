@@ -9,6 +9,7 @@
 import Foundation
 
 // URL endpoints for retrieving posts data
+
 enum PostsURLSettings {
     static let posts = "http://jsonplaceholder.typicode.com/posts"
     static let users = "http://jsonplaceholder.typicode.com/users"

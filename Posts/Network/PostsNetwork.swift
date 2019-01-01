@@ -46,4 +46,5 @@ public class DefaultPostsNetwork: PostsNetwork {
         let url = URL(string: PostsURLSettings.comments)
         return network.getData(at: url!)
     }
+    
 }

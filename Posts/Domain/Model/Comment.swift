@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Comment domain model which maps with JSON from comments network endpoint
+
 public struct Comment: Codable {
     let postId: Int
     let id: Int

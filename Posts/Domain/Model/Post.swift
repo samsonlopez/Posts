@@ -8,10 +8,9 @@
 
 import Foundation
 
-
 // Post domain model which maps with JSON from posts network endpoint
+
 public struct Post: Codable {
-    
     let id: Int
     let userId: Int
     let title: String
@@ -26,5 +25,4 @@ public struct Post: Codable {
         self.title = title
         self.body = body
     }
-    
 }

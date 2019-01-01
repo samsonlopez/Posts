@@ -8,8 +8,9 @@
 
 import Foundation
 
+// User domain model which maps with JSON from users network endpoint
+
 public struct User: Codable {
-    
     let id: Int
     let name: String
     let username: String

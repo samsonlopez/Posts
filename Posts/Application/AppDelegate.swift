@@ -33,4 +33,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.post(Notification(name: Notification.Name.applicationReLaunched))
     }
 }
-

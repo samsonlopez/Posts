@@ -17,7 +17,7 @@ public protocol ErrorHandler: class {
     func submit(error: Error, type: ErrorType)
 }
 
-// Posts loader service to retrieve and load posts into repository
+// Error handler service to alert or log errors
 
 final public class DefaultErrorHandler: ErrorHandler {
     

@@ -210,10 +210,7 @@
 				88EBEBE521DA938800F4B3AD /* ListPostsUseCaseTests.swift */,
 				88EBEC3721DBCAE100F4B3AD /* ShowPostDetailsUseCaseTests.swift */,
 				88592DBC21D970F700FA40DF /* MockNetwork.swift */,
-				88592DBA21D9700A00FA40DF /* TestData.swift */,
-				88592DBE21D9727A00FA40DF /* posts.json */,
-				88EBEC3B21DBCF0300F4B3AD /* users.json */,
-				88EBEC3921DBCEFA00F4B3AD /* comments.json */,
+				88EBEC4121DC073E00F4B3AD /* TestData */,
 				88592D6821D924A800FA40DF /* Info.plist */,
 			);
 			path = PostsTests;
@@ -364,6 +361,17 @@
 				88EBEBDE21DA3CC000F4B3AD /* PostViewData.swift */,
 			);
 			path = Posts;
+			sourceTree = "<group>";
+		};
+		88EBEC4121DC073E00F4B3AD /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				88592DBA21D9700A00FA40DF /* TestData.swift */,
+				88592DBE21D9727A00FA40DF /* posts.json */,
+				88EBEC3B21DBCF0300F4B3AD /* users.json */,
+				88EBEC3921DBCEFA00F4B3AD /* comments.json */,
+			);
+			path = TestData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

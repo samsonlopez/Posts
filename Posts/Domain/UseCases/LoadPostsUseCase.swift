@@ -88,4 +88,3 @@ public enum LoadPostsError: String, Error {
     case loadUsersFailed = "Load users failed"
     case loadCommentsFailed = "Load comments failed"
 }
-

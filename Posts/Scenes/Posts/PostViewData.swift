@@ -16,4 +16,3 @@ public struct PostViewData {
     public let title: String
     public let body: String
 }
-

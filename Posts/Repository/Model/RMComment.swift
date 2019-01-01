@@ -28,7 +28,6 @@ public class RMComment: Object, RepoObject {
 }
 
 extension Comment: DomainObject {
-    
     public func repoObject<T>() -> T where T:Object {
         let rmComment = RMComment()
         rmComment.postId = postId

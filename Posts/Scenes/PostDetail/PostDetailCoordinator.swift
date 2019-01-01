@@ -37,4 +37,5 @@ class PostDetailCoordinator: BaseCoordinator<PostViewData> {
 
         return Observable.never()
     }
+    
 }

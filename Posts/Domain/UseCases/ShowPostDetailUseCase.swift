@@ -34,4 +34,5 @@ class DefaultShowPostDetailUseCase: ShowPostDetailUseCase {
     func getComments(postId: Int) -> Observable<[Comment]> {
         return repository.getComments(postId: postId)
     }
+    
 }
