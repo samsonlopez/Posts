@@ -25,7 +25,27 @@ class DefaultListPostsUseCase: ListPostsUseCase {
     
     func getPosts() -> Observable<[Post]> {
         return repository.getPosts()
+            .map {
+                // Demo - Business logic in use case.
+                // Capitalize first letter of string.
+                return $0.map {
+                    let title = $0.title.capitalizingFirstLetter()
+                    let post = Post(id: $0.id, userId: $0.userId, title: title, body: $0.body)
+                    return post
+                }
+            }
     }
     
+}
+
+// Helper extension, can be kept along with common methods, retained here to show with Demo of business logic.
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }
 
