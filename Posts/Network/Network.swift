@@ -37,8 +37,7 @@ public class RESTNetwork: Network {
                     }
                     
                 } catch let error {
-                    print(error)
-                    return [T]()
+                    throw error
                 }
         }
     }

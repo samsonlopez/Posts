@@ -16,7 +16,8 @@ class PostsViewController: UITableViewController, StoryboardInitializable {
     
     var viewModel: PostsListViewModel!
     var postsLoader: PostsLoader!
-    
+    var errorHandler: ErrorHandler!
+
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -29,8 +30,8 @@ class PostsViewController: UITableViewController, StoryboardInitializable {
                     DispatchQueue.main.async {
                         self.bindUI()
                     }
-                }, onError: { (error) in
-                    print(error)
+                }, onError: { [weak errorHandler] (error) in
+                    errorHandler?.submit(error: error, type: .alert)
                 })
                 .disposed(by: disposeBag)
             

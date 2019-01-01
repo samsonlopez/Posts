@@ -47,5 +47,35 @@ class LoadPostsUseCaseTests: XCTestCase {
         let posts = realm.objects(RMPost.self)
         XCTAssertEqual(posts.count, mockNetwork.entityCount, "Posts count does not match with test data count")
     }
+    
+    func testLoadPosts_onErrorLogsError() {
+        
+        let mockThrowErrorNetwork = MockThrowsErrorNetwork(filename: "posts")
+        let postsNetwork = DefaultPostsNetwork(network: mockThrowErrorNetwork)
+        
+        let repository = RealmRepository()
+        let postsRepository = DefaultPostsRepository(repository: repository)
 
+        // Recreate sut using mockThrowErrorNetwork
+        sut_loadPostsUseCase = DefaultLoadPostsUseCase(network: postsNetwork, repository: postsRepository)
+        
+        // Set mock error handler
+        let mockErrorHandler = MockErrorHandler()
+        sut_loadPostsUseCase.errorHandler = mockErrorHandler
+
+        _ = try! sut_loadPostsUseCase.loadPosts().toBlocking().first()!
+
+        XCTAssertNotNil(mockErrorHandler.error, "Error not handled correctly")
+    }
+
+}
+
+class MockErrorHandler: ErrorHandler {
+    
+    var error:Error? = nil
+    
+    func submit(error: Error, type: ErrorType) {
+        self.error = error
+    }
+    
 }

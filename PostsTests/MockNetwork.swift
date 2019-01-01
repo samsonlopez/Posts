@@ -46,3 +46,22 @@ class MockNetwork: Network {
     }
     
 }
+
+class MockThrowsErrorNetwork: Network {
+    
+    let filename: String
+    var entityCount: Int = 0
+    
+    init(filename: String) {
+        self.filename = filename
+    }
+    
+    public func getData<T: Codable>(at url:URL) -> Observable<[T]> {
+        return Observable.create { observer in
+            observer.onError(RepositoryError.notAccessible);
+            
+            return Disposables.create()
+        }
+    }
+    
+}

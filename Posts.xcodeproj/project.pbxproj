@@ -41,6 +41,7 @@
 		88EBEBE121DA408000F4B3AD /* ListPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBEBE021DA408000F4B3AD /* ListPostsUseCase.swift */; };
 		88EBEBE421DA6F9700F4B3AD /* PostsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBEBE321DA6F9700F4B3AD /* PostsLoader.swift */; };
 		88EBEBE621DA938800F4B3AD /* ListPostsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBEBE521DA938800F4B3AD /* ListPostsUseCaseTests.swift */; };
+		88EBEBE821DB575D00F4B3AD /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBEBE721DB575D00F4B3AD /* ErrorHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		88EBEBE021DA408000F4B3AD /* ListPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsUseCase.swift; sourceTree = "<group>"; };
 		88EBEBE321DA6F9700F4B3AD /* PostsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsLoader.swift; sourceTree = "<group>"; };
 		88EBEBE521DA938800F4B3AD /* ListPostsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPostsUseCaseTests.swift; sourceTree = "<group>"; };
+		88EBEBE721DB575D00F4B3AD /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				88EBEBE321DA6F9700F4B3AD /* PostsLoader.swift */,
+				88EBEBE721DB575D00F4B3AD /* ErrorHandler.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 			files = (
 				88EBEBD921DA3C3700F4B3AD /* PostsListCoordinator.swift in Sources */,
 				88EBEBD021DA38A100F4B3AD /* AppCoordinator.swift in Sources */,
+				88EBEBE821DB575D00F4B3AD /* ErrorHandler.swift in Sources */,
 				88EBEBDB21DA3C9500F4B3AD /* PostsListViewController.swift in Sources */,
 				88592DA621D9481000FA40DF /* Network.swift in Sources */,
 				88EBEBDF21DA3CC000F4B3AD /* PostViewData.swift in Sources */,

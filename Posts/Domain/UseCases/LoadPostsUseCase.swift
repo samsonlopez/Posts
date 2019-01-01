@@ -11,6 +11,7 @@ import RxSwift
 
 public protocol LoadPostsUseCase {
     
+    var errorHandler: ErrorHandler? { get set }
     var isDataLoaded: Bool { get }
     
     // Retrieves all posts from the network and stores in repository
@@ -23,6 +24,8 @@ public class DefaultLoadPostsUseCase: LoadPostsUseCase {
     
     private let network: PostsNetwork
     private let repository: PostsRepository
+    
+    public var errorHandler: ErrorHandler?
     
     init(network: PostsNetwork, repository: PostsRepository) {
         self.network = network
@@ -38,9 +41,14 @@ public class DefaultLoadPostsUseCase: LoadPostsUseCase {
     }
     
     private func loadPosts(network: PostsNetwork, repository: PostsRepository) -> Observable<Bool> {
-        return network.getPosts().flatMap { posts in
-            return repository.savePosts(posts: posts)
-        }
+        return network.getPosts()
+            .catchError { [weak errorHandler] error in
+                errorHandler?.submit(error: error, type: .alert)
+                return Observable.just([Post]())
+            }
+            .flatMap { posts in
+                return repository.savePosts(posts: posts)
+            }
     }
     
 }

@@ -36,7 +36,9 @@ class PostsCoordinator: BaseCoordinator<Void> {
         let postsNetwork = DefaultPostsNetwork(network: network)
         
         // Create posts loader service
-        let postsLoader = DefaultPostsLoader(useCase: DefaultLoadPostsUseCase(network: postsNetwork, repository: postsRepository))
+        let loadPostsUseCase = DefaultLoadPostsUseCase(network: postsNetwork, repository: postsRepository)
+        loadPostsUseCase.errorHandler = DefaultErrorHandler.shared
+        let postsLoader = DefaultPostsLoader(useCase: loadPostsUseCase)
 
         let viewController = PostsViewController.initFromStoryboard(name: "Main")
         rootViewController = viewController
@@ -44,6 +46,7 @@ class PostsCoordinator: BaseCoordinator<Void> {
         
         viewController.viewModel = viewModel
         viewController.postsLoader = postsLoader
+        viewController.errorHandler = DefaultErrorHandler.shared
 
         // Set posts list as root
         window.rootViewController = navigationController
