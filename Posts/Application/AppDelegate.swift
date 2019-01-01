@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
+ 
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        NotificationCenter.default.post(Notification(name: Notification.Name.applicationReLaunched))
+    }
 }
 

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RealmSwift
-//import RxRealm
+
 
 class PostsViewController: UITableViewController, StoryboardInitializable {
     
@@ -25,19 +25,32 @@ class PostsViewController: UITableViewController, StoryboardInitializable {
         
         // Retrieve and load posts data to repository if it is not already loaded.
         if(!postsLoader.isDataLoaded) {
-            postsLoader.loadPosts()
-                .subscribe(onNext: { success in
-                    DispatchQueue.main.async {
-                        self.bindUI()
-                    }
-                }, onError: { [weak errorHandler] (error) in
-                    errorHandler?.submit(error: error, type: .alert)
-                })
-                .disposed(by: disposeBag)
-            
+            loadPostsData()
         } else {
             self.bindUI()
         }
+        
+        // Retry to load posts on re-launch from background if it not already loaded.
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationRelaunched(_:)),
+                                               name: Notification.Name.applicationReLaunched, object: nil)
+    }
+    
+    @objc func applicationRelaunched(_ notification:Notification) {
+        if(!postsLoader.isDataLoaded) {
+            loadPostsData()
+        }
+    }
+    
+    private func loadPostsData() {
+        postsLoader.loadPosts()
+            .subscribe(onNext: { success in
+                DispatchQueue.main.async {
+                    self.bindUI()
+                }
+            }, onError: { [weak errorHandler] (error) in
+                errorHandler?.submit(error: error, type: .alert)
+            })
+            .disposed(by: disposeBag)
     }
     
     // Bind UI elements/actions (tableview, cell selection) to corresponding observables in viewModel.

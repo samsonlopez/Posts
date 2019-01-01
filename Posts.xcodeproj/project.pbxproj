@@ -56,6 +56,7 @@
 		88EBEC3C21DBCF0300F4B3AD /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 88EBEC3B21DBCF0300F4B3AD /* users.json */; };
 		88EBEC3D21DBCFC500F4B3AD /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 88EBEC3B21DBCF0300F4B3AD /* users.json */; };
 		88EBEC3E21DBCFC700F4B3AD /* comments.json in Resources */ = {isa = PBXBuildFile; fileRef = 88EBEC3921DBCEFA00F4B3AD /* comments.json */; };
+		88EBEC4021DBF1CE00F4B3AD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EBEC3F21DBF1CE00F4B3AD /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		88EBEC3721DBCAE100F4B3AD /* ShowPostDetailsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowPostDetailsUseCaseTests.swift; sourceTree = "<group>"; };
 		88EBEC3921DBCEFA00F4B3AD /* comments.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = comments.json; sourceTree = "<group>"; };
 		88EBEC3B21DBCF0300F4B3AD /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		88EBEC3F21DBF1CE00F4B3AD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +312,7 @@
 			children = (
 				88592D5121D924A800FA40DF /* AppDelegate.swift */,
 				88EBEBCF21DA38A100F4B3AD /* AppCoordinator.swift */,
+				88EBEC3F21DBF1CE00F4B3AD /* Notifications.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			files = (
 				88EBEBD921DA3C3700F4B3AD /* PostsListCoordinator.swift in Sources */,
 				88EBEBF421DB84A900F4B3AD /* PostDetailViewController.swift in Sources */,
+				88EBEC4021DBF1CE00F4B3AD /* Notifications.swift in Sources */,
 				88EBEBD021DA38A100F4B3AD /* AppCoordinator.swift in Sources */,
 				88EBEBE821DB575D00F4B3AD /* ErrorHandler.swift in Sources */,
 				88EBEBDB21DA3C9500F4B3AD /* PostsListViewController.swift in Sources */,
