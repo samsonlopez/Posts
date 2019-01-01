@@ -15,6 +15,9 @@ class PostsCoordinator: BaseCoordinator<Void> {
     
     private let window: UIWindow
     
+    // Create posts repository with concrete Realm repository
+    var postsRepository:PostsRepository = DefaultPostsRepository(repository: RealmRepository())
+    
     var rootViewController:UIViewController?
     
     init(window: UIWindow) {
@@ -23,9 +26,6 @@ class PostsCoordinator: BaseCoordinator<Void> {
     
     // Launch the initial scene for Posts List
     override func start() -> Observable<Void> {
-        
-        // Create posts repository with concrete Realm repository
-        let postsRepository = DefaultPostsRepository(repository: RealmRepository())
         
         // Create posts use case and view model with reference to posts use case
         let postsUseCase = DefaultListPostsUseCase(repository: postsRepository)
@@ -47,12 +47,30 @@ class PostsCoordinator: BaseCoordinator<Void> {
         viewController.viewModel = viewModel
         viewController.postsLoader = postsLoader
         viewController.errorHandler = DefaultErrorHandler.shared
+        
+        // Bind post selection to show post detail
+        viewModel.showPostDetail
+            .flatMap { [weak self] postViewData -> Observable<PostViewData> in
+                guard let `self` = self else { return .empty() }
+                return self.showPostDetail(on: viewController, postViewData: postViewData)
+            }
+            .bind(to: viewModel.selectPost)
+            .disposed(by: disposeBag)
 
         // Set posts list as root
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
         return Observable.never()
+    }
+
+    // Coordinate to PostDetail
+    private func showPostDetail(on rootViewController: UIViewController, postViewData: PostViewData) -> Observable<PostViewData> {
+        
+        let postDetailCoordinator = PostDetailCoordinator(rootViewController: rootViewController,
+                                                          postViewData: postViewData,
+                                                          postsRepository: postsRepository)
+        return coordinate(to: postDetailCoordinator)
     }
     
 }

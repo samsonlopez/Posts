@@ -1,9 +1,9 @@
 //
-//  ListPostsUseCaseTests.swift
+//  ShowPostDetailsUseCaseTests.swift
 //  PostsTests
 //
-//  Created by Samson Lopez on 31/12/2018.
-//  Copyright © 2018 Samson Lopez. All rights reserved.
+//  Created by Samson Lopez on 01/01/2019.
+//  Copyright © 2019 Samson Lopez. All rights reserved.
 //
 
 import XCTest
@@ -12,9 +12,9 @@ import RealmSwift
 import RxBlocking
 @testable import Posts
 
-class ListPostsUseCaseTests: XCTestCase {
+class ShowPostDetailUseCaseTests: XCTestCase {
     
-    var sut_listPostsUseCase: ListPostsUseCase!
+    var sut_showPostDetailUseCase: ShowPostDetailUseCase!
     var loadPostsUseCase: LoadPostsUseCase!
     var mockNetwork: MockNetwork! // Also holds mock var entityCount on return
     var realm: Realm!
@@ -33,25 +33,33 @@ class ListPostsUseCaseTests: XCTestCase {
         let postsRepository = DefaultPostsRepository(repository: repository)
         loadPostsUseCase = DefaultLoadPostsUseCase(network: postsNetwork, repository: postsRepository)
         
-        sut_listPostsUseCase = DefaultListPostsUseCase(repository: postsRepository)
+        sut_showPostDetailUseCase = DefaultShowPostDetailUseCase(repository: postsRepository)
     }
     
     override func tearDown() {
-        sut_listPostsUseCase = nil
+        sut_showPostDetailUseCase = nil
         realm = nil
     }
     
-    func test_getPosts_CreatesPostsInRepository() {
+    func test_getUser_ReturnsCorrectUser() {
         
         // Load test data to realm via LoadPostsUseCase
         let success = try! loadPostsUseCase.loadPosts().toBlocking().first()!
         XCTAssertTrue(success, "loadPosts fails and returns false")
         
-        // Get post count in test data
-        let testPostsCount = TestData.getPosts().count
-
-        let posts = try! sut_listPostsUseCase.getPosts().toBlocking().first()!
-        XCTAssertEqual(posts.count, testPostsCount, "Posts count does not match with test data count")
+        let user = try! sut_showPostDetailUseCase.getUser(userId: 2).toBlocking().first()!
+        XCTAssertEqual(user.id, 2, "User Id does not match")
     }
-    
+
+    func test_getComments_ReturnsCorrectNumberOfComments() {
+        
+        // Load test data to realm via LoadPostsUseCase
+        let success = try! loadPostsUseCase.loadPosts().toBlocking().first()!
+        XCTAssertTrue(success, "loadPosts fails and returns false")
+        
+        let testNoOfComments = 5
+        let comments = try! sut_showPostDetailUseCase.getComments(postId: 5).toBlocking().first()!
+        XCTAssertEqual(comments.count, testNoOfComments, "No of comments does not match")
+    }
+
 }

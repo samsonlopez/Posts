@@ -15,17 +15,10 @@ import RxSwift
 
 class MockNetwork: Network {
     
-    let filename: String
-    var entityCount: Int = 0
-    
-    init(filename: String) {
-        self.filename = filename
-    }
-    
     public func getData<T: Codable>(at url:URL) -> Observable<[T]> {
         return Observable.create { observer in
             
-            let testData = TestData.getTestData(for: self.filename)
+            let testData = TestData.getTestData(url: url)
             
             var entities: [T]!
             do {
@@ -34,8 +27,6 @@ class MockNetwork: Network {
             } catch let error {
                 print(error)
             }
-            
-            self.entityCount = entities.count
             
             observer.on(.next(entities))
             observer.on(.completed)
@@ -48,13 +39,6 @@ class MockNetwork: Network {
 }
 
 class MockThrowsErrorNetwork: Network {
-    
-    let filename: String
-    var entityCount: Int = 0
-    
-    init(filename: String) {
-        self.filename = filename
-    }
     
     public func getData<T: Codable>(at url:URL) -> Observable<[T]> {
         return Observable.create { observer in

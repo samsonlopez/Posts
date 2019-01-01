@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 // Post domain model which maps with JSON from posts network endpoint
 public struct Post: Codable {
     

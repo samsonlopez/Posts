@@ -53,3 +53,12 @@ class PostsListViewModel {
     }    
     
 }
+
+extension Post {
+    func asPostViewData() -> PostViewData {
+        return PostViewData(id: id,
+                            userId: userId,
+                            title: title,
+                            body: body)
+    }
+}

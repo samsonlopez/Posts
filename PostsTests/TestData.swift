@@ -10,18 +10,26 @@ import Foundation
 
 @testable import Posts
 
-// Provides test data from a static JSON file.
+// Provides test data from a static JSON files.
 
 class TestData {
 
     static func getPosts() -> [Post] {
-        return getEntites(for: "posts")
+        return getEntites(url: URL(string: PostsURLSettings.posts)!)
     }
 
-    static func getEntites<T: Codable>(for filename:String) -> [T] {
+    static func getUsers() -> [User] {
+        return getEntites(url: URL(string: PostsURLSettings.users)!)
+    }
+
+    static func getComments() -> [Comment] {
+        return getEntites(url: URL(string: PostsURLSettings.comments)!)
+    }
+
+    static func getEntites<T: Codable>(url: URL) -> [T] {
         var entities: [T]!
         
-        let testData = TestData.getTestData(for: filename)
+        let testData = TestData.getTestData(url: url)
         do {
             let decoder = JSONDecoder()
             entities = try decoder.decode([T].self, from: testData)
@@ -32,7 +40,10 @@ class TestData {
         return entities
     }
 
-    static func getTestData(for filename:String) -> Data {
+    static func getTestData(url:URL) -> Data {
+        
+        let filename = url.lastPathComponent
+        
         let path = Bundle.main.path(forResource: filename, ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: path))
         

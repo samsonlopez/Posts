@@ -21,7 +21,7 @@ class LoadPostsUseCaseTests: XCTestCase {
     override func setUp() {
 
         // Mock network to load test data from file
-        mockNetwork = MockNetwork(filename: "posts")
+        mockNetwork = MockNetwork()
         let postsNetwork = DefaultPostsNetwork(network: mockNetwork)
         
         // In-memory Realm for testing, loads clear each time
@@ -39,18 +39,21 @@ class LoadPostsUseCaseTests: XCTestCase {
         realm = nil
     }
 
-    func testLoadPosts_CreatesPostsInRepository() {
+    func test_loadPosts_CreatesPostsInRepository() {
         
         let success = try! sut_loadPostsUseCase.loadPosts().toBlocking().first()!
         XCTAssertTrue(success, "loadPosts fails and returns false")
         
+        // Get post count in test data
+        let testPostsCount = TestData.getPosts().count
+
         let posts = realm.objects(RMPost.self)
-        XCTAssertEqual(posts.count, mockNetwork.entityCount, "Posts count does not match with test data count")
+        XCTAssertEqual(posts.count, testPostsCount, "Posts count does not match with test data count")
     }
     
-    func testLoadPosts_onErrorLogsError() {
+    func test_loadPosts_onErrorLogsError() {
         
-        let mockThrowErrorNetwork = MockThrowsErrorNetwork(filename: "posts")
+        let mockThrowErrorNetwork = MockThrowsErrorNetwork()
         let postsNetwork = DefaultPostsNetwork(network: mockThrowErrorNetwork)
         
         let repository = RealmRepository()
@@ -63,9 +66,14 @@ class LoadPostsUseCaseTests: XCTestCase {
         let mockErrorHandler = MockErrorHandler()
         sut_loadPostsUseCase.errorHandler = mockErrorHandler
 
-        _ = try! sut_loadPostsUseCase.loadPosts().toBlocking().first()!
-
-        XCTAssertNotNil(mockErrorHandler.error, "Error not handled correctly")
+        var isError = false
+        do {
+            _ = try sut_loadPostsUseCase.loadPosts().toBlocking().first()!
+        } catch {
+            isError = true
+            XCTAssertNotNil(mockErrorHandler.error, "Error not handled correctly")
+        }
+        XCTAssertTrue(isError, "Error not thrown")
     }
 
 }

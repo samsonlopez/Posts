@@ -8,6 +8,8 @@
 
 import Foundation
 
+// View data used as DTO between vieController and viewModel
+
 public struct PostViewData {
     public let id: Int
     public let userId: Int

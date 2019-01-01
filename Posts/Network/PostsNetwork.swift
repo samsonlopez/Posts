@@ -10,8 +10,16 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-public protocol PostsNetwork {
+public protocol PostsNetwork: class {
+
+    // Retrieves all post entities from network endpoint
     func getPosts() -> Observable<[Post]>
+
+    // Retrieves all user entities from network endpoint
+    func getUsers() -> Observable<[User]>
+    
+    // Retrieves all comment entities from network endpoint
+    func getComments() -> Observable<[Comment]>
 }
 
 // Default implementation of PostsNetwork, references any type of Network
@@ -24,10 +32,18 @@ public class DefaultPostsNetwork: PostsNetwork {
         self.network = network
     }
     
-    // Retrieves all post entities from network endpoint
     public func getPosts() -> Observable<[Post]> {
         let url = URL(string: PostsURLSettings.posts)
         return network.getData(at: url!)
     }
+
+    public func getUsers() -> Observable<[User]> {
+        let url = URL(string: PostsURLSettings.users)
+        return network.getData(at: url!)
+    }
     
+    public func getComments() -> Observable<[Comment]> {
+        let url = URL(string: PostsURLSettings.comments)
+        return network.getData(at: url!)
+    }
 }
