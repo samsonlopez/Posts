@@ -22,4 +22,5 @@ class AppCoordinator: BaseCoordinator<Void> {
         let postsCoordinator = PostsCoordinator(window: window)
         return coordinate(to: postsCoordinator)
     }
+    
 }
