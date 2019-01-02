@@ -62,7 +62,6 @@ public class RealmRepository: Repository {
     
     func getUser(userId: Int) -> User? {
         let realm = try! Realm()
-        print("UserId: \(userId)")
         if let user = realm.objects(RMUser.self).filter(NSPredicate(format: "id == %d", userId)).first {
             return user.domainObject()
         } else {
@@ -73,12 +72,9 @@ public class RealmRepository: Repository {
     func getComments(postId: Int) -> Observable<[Comment]>{
         let realm = try! Realm()
         
-        print("PostId: \(postId)")
         let comments = realm.objects(RMComment.self).filter(NSPredicate(format: "postId == %d", postId))
-        print("Comment count: \(comments.count)")
         return Observable.from(comments.toArray())
             .map {
-                print($0)
                 return $0.domainObject()
             }.toArray()        
     }

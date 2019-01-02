@@ -30,8 +30,6 @@ class PostDetailViewModel {
         useCase.getUser(userId: postViewData.userId)
             .subscribe(onNext: { user in
                 _author = user.name
-            }, onError: { (error) in
-                print(error)
             }).disposed(by: disposeBag)
 
         
@@ -39,8 +37,6 @@ class PostDetailViewModel {
         useCase.getComments(postId: postViewData.id)
             .subscribe(onNext: { comments in
                 _commentCount = comments.count
-            }, onError: { (error) in
-                print(error)
             }).disposed(by: disposeBag)
         
         return PostDetailViewData(author: _author,

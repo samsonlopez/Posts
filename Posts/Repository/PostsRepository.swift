@@ -78,7 +78,6 @@ public class DefaultPostsRepository: PostsRepository {
 
         return Observable.from(comments.toArray())
             .map {
-                //print($0)
                 return $0.domainObject()
             }.toArray()
     }
